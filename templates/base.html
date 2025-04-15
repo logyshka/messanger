@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Django + HTMX + Alpine.js</title>
+    <!-- Подключаем HTMX -->
+    <script src="{% static 'js/htmx.js' %}"></script>
+    <!-- Подключаем Alpine.js -->
+    <script defer src="{% static 'js/alpine.js' %}"></script>
+    <!-- CSRF для HTMX-запросов -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+</head>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+{% block content %}{% endblock %}
+</body>
+</html>
