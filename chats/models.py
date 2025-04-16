@@ -11,9 +11,8 @@ class Chat(models.Model):
 class Message(models.Model):
     id = models.BigAutoField(primary_key=True)
     chat = models.ForeignKey(
-        to=Chat,
+        to='chats.Chat',
         on_delete=models.CASCADE,
-        related_name='messages'
     )
     user = models.ForeignKey(
         to='users.User',
