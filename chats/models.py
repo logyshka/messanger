@@ -10,8 +10,15 @@ class Chat(models.Model):
 
 class Message(models.Model):
     id = models.BigAutoField(primary_key=True)
-    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    chat = models.ForeignKey(
+        to=Chat,
+        on_delete=models.CASCADE,
+        related_name='messages'
+    )
+    user = models.ForeignKey(
+        to='users.User',
+        on_delete=models.CASCADE
+    )
     text = models.CharField(max_length=2048)
     sent_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(null=True)
