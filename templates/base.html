@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token }}">
     <title>Django + HTMX + Alpine.js</title>
-    <!-- Подключаем HTMX -->
     <script src="{% static 'js/htmx.js' %}"></script>
-    <!-- Подключаем Alpine.js -->
     <script defer src="{% static 'js/alpine.js' %}"></script>
-    <!-- CSRF для HTMX-запросов -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="{% static 'css/styles.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
 </head>
-<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+<body class="w-100 h-100 m-0 p-0" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' style="font-family: 'Abel', serif;">
 {% block content %}{% endblock %}
 </body>
 </html>

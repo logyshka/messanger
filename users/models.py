@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import UserManager
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -19,3 +20,6 @@ class User(AbstractBaseUser):
             "unique": _("A user with that username already exists."),
         },
     )
+    USERNAME_FIELD = "username"
+
+    objects = UserManager()
