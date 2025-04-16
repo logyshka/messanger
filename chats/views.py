@@ -8,6 +8,12 @@ from .permissions import IsAuthorOrReadOnly
 from .serializers import ChatSerializer, MessageSerializer
 
 
+class ChatCreateView(generics.CreateAPIView):
+    queryset = Chat.objects.all()
+    serializer_class = ChatSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
 # Получение всех чатов
 class ChatListView(generics.ListAPIView):
     queryset = Chat.objects.all()
