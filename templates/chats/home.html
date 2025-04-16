@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid w-100 m-0 p-0">
+        <div class="w-100 border-bottom p-3">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger rounded-pill" type="submit">
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

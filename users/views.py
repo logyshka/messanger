@@ -1,6 +1,5 @@
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import AccessMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
@@ -25,3 +24,8 @@ class UserLoginView(NoAuthRequiredMixin, LoginView):
     form_class = LoginForm
     template_name = "users/login.html"
     next_page = reverse_lazy("home")
+
+
+class UserLogoutView(LogoutView):
+    next_page = reverse_lazy("login")
+
